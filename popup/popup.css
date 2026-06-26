@@ -1,0 +1,41 @@
+body {
+  width: 340px;
+  margin: 0;
+  padding: 14px;
+  font-family: Arial, sans-serif;
+  color: #111111;
+  background: #ffffff;
+}
+
+button {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #111111;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f2f2f2;
+}
+
+#statusMessage {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#transcriptText {
+  max-height: 300px;
+  margin: 12px 0 0;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  overflow: auto;
+  white-space: pre-wrap;
+  background: #fafafa;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}

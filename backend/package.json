@@ -1,0 +1,13 @@
+{
+  "name": "youtube-transcript-generator-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend API for YouTube Transcript Generator.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

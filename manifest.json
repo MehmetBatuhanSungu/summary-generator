@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Transcript Generator",
+  "version": "0.1.0",
+  "description": "A minimal Chrome extension MVP for showing YouTube transcripts.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:3000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
