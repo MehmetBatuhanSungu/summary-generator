@@ -34,7 +34,7 @@ async function showSummaryInTab(tabId, summary) {
 }
 
 async function summarizeTranscript(transcript) {
-  const response = await fetch("http://127.0.0.1:3000/summarize", {
+  const response = await fetch("https://youtube-transcript-generator-backend.onrender.com/summarize", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
