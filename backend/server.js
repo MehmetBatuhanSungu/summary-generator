@@ -13,6 +13,7 @@ const MAX_TRANSCRIPT_CHARS = 20000;
 
 const server = http.createServer(async (request, response) => {
   setCorsHeaders(response);
+  const pathname = new URL(request.url, `http://${request.headers.host}`).pathname;
 
   if (request.method === "OPTIONS") {
     response.writeHead(204);
@@ -20,7 +21,19 @@ const server = http.createServer(async (request, response) => {
     return;
   }
 
-  if (request.method === "GET" && request.url === "/health") {
+  if (request.method === "GET" && pathname === "/") {
+    sendJson(response, 200, {
+      ok: true,
+      message: "Backend calisiyor.",
+      endpoints: {
+        health: "GET /health",
+        summarize: "POST /summarize"
+      }
+    });
+    return;
+  }
+
+  if (request.method === "GET" && pathname === "/health") {
     sendJson(response, 200, {
       ok: true,
       message: "Backend calisiyor.",
@@ -29,7 +42,14 @@ const server = http.createServer(async (request, response) => {
     return;
   }
 
-  if (request.method === "POST" && request.url === "/summarize") {
+  if (request.method !== "POST" && pathname === "/summarize") {
+    sendJson(response, 405, {
+      error: "Bu endpoint POST istegi bekliyor."
+    });
+    return;
+  }
+
+  if (request.method === "POST" && pathname === "/summarize") {
     const body = await readJsonBody(request);
     const transcript = body.transcript || "";
 
